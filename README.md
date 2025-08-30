@@ -54,10 +54,8 @@
 > **Installation**
 >
 > - ~~clone repo, build, copy (`<vault>/.obsidian/plugins/crude-csv/`)~~
-> - **Use the community plugins search** ==> <ins>recommended</ins>!
-> ## afterwards:
+> - **Use the community plugins search** ==> <ins>recommended</ins> !!
 > 	- Enable the plugin in Obsidian's Community Plugins settings
-> 	- Enable "Detect all file extensions" (`Settings > Files & Links`)
 >   - **CSV files will now open in the CRUDE CSV viewer**
 > ---
 ---
