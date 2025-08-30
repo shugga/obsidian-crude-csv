@@ -1,11 +1,11 @@
 {
-	"id": "sample-plugin",
-	"name": "Sample Plugin",
-	"version": "1.0.0",
-	"minAppVersion": "0.15.0",
-	"description": "Demonstrates some of the capabilities of the Obsidian API.",
-	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
-	"isDesktopOnly": false
+    "id": "crude-csv",
+    "name": "CRUDE CSV",
+    "version": "1.0.0",
+    "minAppVersion": "1.4.16",
+    "description": "(C)reate, (R)ead, (U)pdate, (D)elete, (E)dit CSV files in a spreadsheet interface within Obsidian. Crude, right?!",
+    "author": "Shugga",
+    "authorUrl": "https://github.com/shugga",
+    "fundingUrl": "",
+    "isDesktopOnly": false
 }
