@@ -43,7 +43,9 @@
 > ---
 ---
 
-[Screenshot dark mode](scr_dark.png) & [Screenshot light mode](scr_light.png)
+> [!CAUTION]
+> [Screenshot dark mode](scr_dark.png) & [Screenshot light mode](scr_light.png)
+> ---
 ---
 
 > [!IMPORTANT]
