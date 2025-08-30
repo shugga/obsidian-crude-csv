@@ -1,94 +1,128 @@
-# Obsidian Sample Plugin
+# CSV Edit in Obsidian
 
-This is a sample plugin for Obsidian (https://obsidian.md).
+> [!CAUTION]
+> 
+> | CRUDE CSV |                                                                                                |
+> | --------- | ---------------------------------------------------------------------------------------------- |
+> |           | Transforms your CSV files into an interactive spreadsheet view.                                |
+> |           |                                                                                                |
+> |           | **C**reate, **R**ead, **U**pdate, **D**elete, **E**dit (and **N**ew) directly within Obsidian. |
+> |           |                                                                                                |
+> |           | Crude. Isn't it ?!                                                                             |
+> 
+> ---
+---
 
-This project uses TypeScript to provide type checking and documentation.
-The repo depends on the latest plugin API (obsidian.d.ts) in TypeScript Definition format, which contains TSDoc comments describing what it does.
+> [!NOTE]
+> 
+> ## Features
+> 
+> - View CSV files as table with proper row numbers
+> - Create new CSV files - even with a template!
+> - Edit cells directly by clicking on them
+> - Real-time updates that automatically save to your CSV file
+> 
+> ---
+> 
+> - Insert new data rows with the `+R` button
+> - Delete the last row with the `-R` button
+> - Expand your table with the `+C` button
+> - Trim columns with the `-C` button
+>
+> ---
+>
+> - Intelligent parsing that handles quoted fields and special characters
+> 	-  98.74ˉ11% of cases work perfectly – don't use line breaks in cells 💩
+> - Proper handling of empty cells and missing data
+>
+> ---
+>
+> - Seamlessly integrates with Obsidian's theming system
+> - Usefull on small screens as well as on mobile devices
+> - Automatically registers `.csv` files to open in the CRUDE CSV viewer
+> ---
+---
 
-This sample plugin demonstrates some of the basic functionality the plugin API can do.
-- Adds a ribbon icon, which shows a Notice when clicked.
-- Adds a command "Open Sample Modal" which opens a Modal.
-- Adds a plugin setting tab to the settings page.
-- Registers a global click event and output 'click' to the console.
-- Registers a global interval which logs 'setInterval' to the console.
+> [!IMPORTANT]
+> **Installation**
+>
+> - ~~clone repo, build, copy (`<vault>/.obsidian/plugins/crude-csv/`)~~
+> - **Use the community plugins search** ==> <ins>recommended</ins>!
+> ## afterwards:
+> 	- Enable the plugin in Obsidian's Community Plugins settings
+> 	- Enable "Detect all file extensions" (`Settings > Files & Links`)
+>   - **CSV files will now open in the CRUDE CSV viewer**
+> ---
+---
 
-## First time developing plugins?
+> [!TIP]
+>
+> **Opening CSV Files**
+>
+> - Click on a `.csv` file in your vault
+>   - it will automatically opens the file in the spreadsheet view
+>
+> **Create a new CSV File**
+>
+> - Use or right click the **file explorer**, choose **Ribon icon** or the **command palette** to create a new CSV file in your vault
+>   - it will automatically opens the file in the spreadsheet view
+>
+> **Use a Table template**
+>
+> - Exits a `template.csv` in your Template-Folder (Core plugin or Templater) it will be used as scheme for new files
+> - _You can also set one in the plugin settings_
+>   - if not found, exists nor set, new files got a "mini content"
+>     - MINI = 1st row with A, B and a 2nd row with 1, 2
+>
+> **Editing Data**
+>
+> - **Edit**: Click on a cell to edit
+> - **Add/Remove**: Use the toolbar buttons to add/del rows or columns as needed
+>
+> **Toolbar**
+>
+> - `+R` - Add a new row at the bottom of the table
+> - `-R` - Remove the last row from the table
+> - `+C` - Add a new column to the right
+> - `-C` - Remove the rightmost column
+> - _Prevention from deleting all cells and having an empty file - 1 cell is minimum and still remains_
+> ---
+---
 
-Quick starting guide for new plugin devs:
+> [!CAUTION]
+> **Technical Details**
+>
+> - Built with TypeScript for robust type safety
+> - **Zero external dependencies** - Lightweight. And fast!
+> - Non extras included!
+> - CSS for mostly all Screen sizes and device platforms
+> - Extends Obsidian's `TextFileView` for seamless file integration
+> - Uses Obsidian's native styling system for consistent theming
+> - Automatically saves changes back to the original CSV file
+>
+> **Requirements**
+>
+> - Obsidian v1.4.16 or higher
+>
+> **Contributing**
+>
+> - Issues and pull requests are welcome!
+> - Aim to make CSV editing as smooth as possible with a little QoL inside Obsidian.
+>
+> **License**
+>
+> - <ins>unlicense</ins> -> see [LICENSE](LICENSE.md) (for details)
+> ---
+---
 
-- Check if [someone already developed a plugin for what you want](https://obsidian.md/plugins)! There might be an existing plugin similar enough that you can partner up with.
-- Make a copy of this repo as a template with the "Use this template" button (login to GitHub if you don't see it).
-- Clone your repo to a local development folder. For convenience, you can place this folder in your `.obsidian/plugins/your-plugin-name` folder.
-- Install NodeJS, then run `npm i` in the command line under your repo folder.
-- Run `npm run dev` to compile your plugin from `main.ts` to `main.js`.
-- Make changes to `main.ts` (or create new `.ts` files). Those changes should be automatically compiled into `main.js`.
-- Reload Obsidian to load the new version of your plugin.
-- Enable plugin in settings window.
-- For updates to the Obsidian API run `npm update` in the command line under your repo folder.
-
-## Releasing new releases
-
-- Update your `manifest.json` with your new version number, such as `1.0.1`, and the minimum Obsidian version required for your latest release.
-- Update your `versions.json` file with `"new-plugin-version": "minimum-obsidian-version"` so older versions of Obsidian can download an older version of your plugin that's compatible.
-- Create new GitHub release using your new version number as the "Tag version". Use the exact version number, don't include a prefix `v`. See here for an example: https://github.com/obsidianmd/obsidian-sample-plugin/releases
-- Upload the files `manifest.json`, `main.js`, `styles.css` as binary attachments. Note: The manifest.json file must be in two places, first the root path of your repository and also in the release.
-- Publish the release.
-
-> You can simplify the version bump process by running `npm version patch`, `npm version minor` or `npm version major` after updating `minAppVersion` manually in `manifest.json`.
-> The command will bump version in `manifest.json` and `package.json`, and add the entry for the new version to `versions.json`
-
-## Adding your plugin to the community plugin list
-
-- Check the [plugin guidelines](https://docs.obsidian.md/Plugins/Releasing/Plugin+guidelines).
-- Publish an initial version.
-- Make sure you have a `README.md` file in the root of your repo.
-- Make a pull request at https://github.com/obsidianmd/obsidian-releases to add your plugin.
-
-## How to use
-
-- Clone this repo.
-- Make sure your NodeJS is at least v16 (`node --version`).
-- `npm i` or `yarn` to install dependencies.
-- `npm run dev` to start compilation in watch mode.
-
-## Manually installing the plugin
-
-- Copy over `main.js`, `styles.css`, `manifest.json` to your vault `VaultFolder/.obsidian/plugins/your-plugin-id/`.
-
-## Improve code quality with eslint (optional)
-- [ESLint](https://eslint.org/) is a tool that analyzes your code to quickly find problems. You can run ESLint against your plugin to find common bugs and ways to improve your code. 
-- To use eslint with this project, make sure to install eslint from terminal:
-  - `npm install -g eslint`
-- To use eslint to analyze this project use this command:
-  - `eslint main.ts`
-  - eslint will then create a report with suggestions for code improvement by file and line number.
-- If your source code is in a folder, such as `src`, you can use eslint with this command to analyze all files in that folder:
-  - `eslint .\src\`
-
-## Funding URL
-
-You can include funding URLs where people who use your plugin can financially support it.
-
-The simple way is to set the `fundingUrl` field to your link in your `manifest.json` file:
-
-```json
-{
-    "fundingUrl": "https://buymeacoffee.com"
-}
-```
-
-If you have multiple URLs, you can also do:
-
-```json
-{
-    "fundingUrl": {
-        "Buy Me a Coffee": "https://buymeacoffee.com",
-        "GitHub Sponsor": "https://github.com/sponsors",
-        "Patreon": "https://www.patreon.com/"
-    }
-}
-```
-
-## API Documentation
-
-See https://github.com/obsidianmd/obsidian-api
+> [!NOTE]
+>
+> ## Reasons for creating and choosing this plugin over others
+>
+> - Many disappointed me
+> - Some didn’t work, or work proper
+> - A few were not what I expected
+>
+> ## Hopefully someone else enjoys it as much as I do - The Author
+> ---
+---
